@@ -1,0 +1,23 @@
+
+a:link.tuinfor_menu{
+	 color:#28a745;
+}
+
+/* visited link */
+a:visited.tuinfor_menu{
+	 color:#28a745;
+}
+
+/* mouse over link */
+a:hover.tuinfor_menu {
+ color:#495057;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+input {
+  width: 80%;
+}
