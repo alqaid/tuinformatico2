@@ -1,2 +1,5 @@
-tuinformatico2
-Version 1 MVC
+Tu INFORMATICO 
+
+Version DEMO
+
+Ultimos cambios el MVC versión1
