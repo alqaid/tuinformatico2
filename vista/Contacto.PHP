@@ -12,7 +12,13 @@ if (!isset($_SESSION['eClave']) && isset($_COOKIE['eClave'])) {
     $_SESSION['iNombre'] = $_COOKIE['iNombre'];
 }
 ?>
-
+<?php
+	// RESPUESTA DEL ENVÍO DEL CORREO.
+	// SI EXISTE LA VARIABLE GET[MENSAJE] MOSTRAMOS UN ALERT   
+	if (isset($_GET["mensaje"]) &&  !empty($_GET["mensaje"])) {		
+		echo "<script type='text/javascript'>alert('" . $_GET["mensaje"] . "'); window.location.href='Contacto.PHP'; </script>";
+	}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,6 +63,56 @@ if (!isset($_SESSION['eClave']) && isset($_COOKIE['eClave'])) {
   </div>
   <br>
   
+  
+  <div class="p-3 border bg-light">
+  <h2>Contactar</h2>
+  <form class="form-horizontal" action="../controlador/contacto.php" method="POST">
+   <div class="form-group">
+      <label class="control-label col-sm-2" for="nombre">Nombre (<span style="color:red;">*</span>):</label>
+      <div class="col-sm-10">          
+        <input type="text" class="form-control" id="nombre" placeholder="Indique su nombre o razón social" name="nombre" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="email">Email (<span style="color:red;">*</span>):</label>
+      <div class="col-sm-10">
+        <input type="email" class="form-control" id="email" placeholder="Su eMail" name="email" required>
+      </div>
+    </div>
+	 <div class="form-group">
+      <label class="control-label col-sm-2" for="telefono">Teléfono:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="telefono" placeholder="Su teléfono" name="telefono" pattern="[0-9]{9}" title="9 dígitos">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="asunto">Asunto (<span style="color:red;">*</span>):</label>
+      <div class="col-sm-10">          
+        <input type="text" class="form-control" id="asunto" placeholder="Indique un asunto breve" name="asunto" required>
+      </div>
+    </div>
+	  <div class="form-group">
+      <label class="control-label col-sm-2" for="descripcion">Descripción:</label>
+      <div class="col-sm-10">
+		<textarea rows="4" cols="50" name="descripcion" class="form-control" placeholder="Indique una descripción detallada" required></textarea>	  
+         
+      </div>
+    </div>
+    <div class="form-group">        
+      <div class="col-sm-offset-2 col-sm-10">
+        <div class="checkbox">
+          <label><input type="checkbox" name="politica" required  value="Acepto">(<span style="color:red;">*</span>) Acepta al política de privacidad de datos</label>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">        
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-success">Enviar</button>
+      </div>
+    </div>
+  </form>
+</div>
+   <br> <br>
 
 <!-- FIN SITIO LIBRE PARA INCLUIR -->
 </main> <!-- class="container" -->
