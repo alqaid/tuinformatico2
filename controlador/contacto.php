@@ -34,8 +34,8 @@ $mensaje_Devolucion='';
 //  URL GITHUB https://github.com/KyleAMathews/phpmailer
 // -----------------------------------------------------
 		
-require_once('../controlador/phpmailer/class.phpmailer.php');
-require('../controlador/phpmailer/config.php');
+require_once('../controlador/librerias/class.phpmailer.php');
+require('../controlador/librerias/config.php');
 
 
 /*

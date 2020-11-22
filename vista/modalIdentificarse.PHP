@@ -47,15 +47,19 @@
                                             <input type="password" maxlength="64" id="pass" name="contraseña"><br>
                                             <a href="https://www.w3schools.com">¿Olvido su contraseña?</a><br><br>
                                             <label><input type="checkbox"> Recordadme</label><br>
-                                            <button type="submit" name="registro" class="btn btn-success">Iniciar sesion</button>
+										 <div class="g-recaptcha" data-sitekey="6LexGuUZAAAAAIgFVgIkl0ncbuIF26e5Gc3alwVE"  ></div>
+                                            <button type="submit" name="registro" class="btn btn-success"  >Iniciar sesion</button>
                                         </form>
                                         <a href="../vista/registroInformatico.php" id="registrarse">¡Registrate!</a>
                                     </div>
+									 <div id="resultadobusqueda" >
+									 </div>
                                 </div>
                            </div>
                     </DIV>	
-					
-			<!--<script>
+
+ 			
+<!--<script>
 $("#formautenticacion").submit(function(event){
 	console.log(" probando identificación ");
 	

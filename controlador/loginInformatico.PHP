@@ -1,5 +1,45 @@
 <?php
 
+// --------------------------------------------------------------------------
+// --------captcha------------------------------------------------------------------
+// ---AUTENTICACION EN GOOGLE-----------------------------------------------------------------------
+
+// referencia: https://webdesign.tutsplus.com/es/tutorials/how-to-integrate-no-captcha-recaptcha-in-your-website--cms-23024
+
+
+ 
+require_once('../controlador/librerias/recaptchalib.php');
+
+// your secret key DEL SERVIDOR
+$secret = "6LexGuUZAAAAALlFYL-RJ3KunfvJR3vojpECe6yw";
+ 
+// empty response
+$response = null;
+ 
+// check secret key
+$reCaptcha = new ReCaptcha($secret);
+
+// if submitted check response
+if ($_POST["g-recaptcha-response"]) {
+    $response = $reCaptcha->verifyResponse(
+        $_SERVER["REMOTE_ADDR"],
+        $_POST["g-recaptcha-response"]
+    );
+}
+
+
+  if ($response != null && $response->success) {
+	 //"RESPUESTA DEL SERVIDOR DE GOOGLE OK " 
+	 // continuamos ejecución
+  
+// --------------------------------------------------------------------------
+// --------------------------------------------------------------------------
+// --------------------------------------------------------------------------
+?>
+
+
+<?php
+
 include('../modelo/config.php');
 if (!isset($_SESSION)) {
     session_start();
@@ -43,4 +83,10 @@ if (isset($_POST['registro'])) {
         }
     }
 }
+?>
+<?php
+}else{
+	  echo "<script> window.location='../vista/registroInformatico.php'; </script>";
+  }
+
 ?>
