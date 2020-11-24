@@ -11,13 +11,17 @@
 
                                     <!-- Modal body -->
                                     <div class="modal-body">
-                                        <form action="../vista/registrarEmpresa.php">
-											<button type="submit" class="btn btn-success">Empresa</button>
-										</form>	<br>
-										<label>o</label><br>
-										<form action="../vista/registroInformatico.php">
-											<button type="submit" class="btn btn-success">Informatico</button>
-										</form>	
-                                    </div>
+
+									<a href="/vista/registrarEmpresa.php"><img src="/vista/images/empresa.png" style="width:261px;height:193px; alt="empresa"></img></a>
+									<strong>Empresa</strong>
+
+									<br>
+									<br>
+
+									<a href="/vista/registroInformatico.php"><img src="/vista/images/informatico.png" style="width:261px;height:193px; alt="informatico"></a>
+									<strong>Informático</strong>
+
+									</div>
                                 </div>
-                        </div> </div>
+							</div> 
+						</div>

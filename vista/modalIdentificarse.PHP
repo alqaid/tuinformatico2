@@ -6,7 +6,7 @@
 								<nav>
 								<ul class="nav nav-tabs nav-justified">
 								<li class="nav-item">
-								<strong id="I" href="#" class="nav-link tuinfor_menu" style="background-color:#28a745;border-color: #28a745;"
+								<strong id="I" class="nav-link tuinfor_menu" style="background-color:#28a745;border-color: #28a745;"
 								onclick='document.getElementById("registrarse").href = "../vista/registroInformatico.php";
 										document.getElementById("titulo").innerHTML= "Identificarse/Informatico";
 										document.getElementById("I").className= "nav-link tuinfor_menu";
@@ -16,8 +16,8 @@
 										document.getElementById("formautenticacion").action = "../controlador/loginInformatico.PHP";
 								'>Informatico</strong>
 								</li>
-								<li class="nav-item ">
-								<strong href="#" id="E" class="nav-link active tuinfor_menu" style="color:#007bff"
+								<li class="nav-item">
+								<strong id="E" class="nav-link active tuinfor_menu" style="color:#007bff"
 								onclick='document.getElementById("registrarse").href = "../vista/registrarEmpresa.php";
 										document.getElementById("titulo").innerHTML= "Identificarse/Empresa";
 										document.getElementById("I").className= "nav-link active tuinfor_menu";
@@ -42,12 +42,12 @@
                                     <div class="modal-body" >
                                         <form id="formautenticacion" method="POST" action="../controlador/loginInformatico.PHP">
                                             <label for="e">Email:</label><br>
-                                            <input type="text" id="user" name="email"><br>
+                                            <input type="text" style="width : 250px; heigth : 5px" id="user" name="email"><br>
                                             <label for="p">Contraseña:</label><br>
                                             <input type="password" maxlength="64" id="pass" name="contraseña"><br>
                                             <a href="https://www.w3schools.com">¿Olvido su contraseña?</a><br><br>
-                                            <label><input type="checkbox"> Recordadme</label><br>
-										 <div class="g-recaptcha" data-sitekey="6LexGuUZAAAAAIgFVgIkl0ncbuIF26e5Gc3alwVE"  ></div>
+                                            <input type="checkbox" name="recuerda"> <label>Recordadme</label><br>
+										 <div class="g-recaptcha" data-sitekey="6LexGuUZAAAAAIgFVgIkl0ncbuIF26e5Gc3alwVE"  ></div><br>
                                             <button type="submit" name="registro" class="btn btn-success"  >Iniciar sesion</button>
                                         </form>
                                         <a href="../vista/registroInformatico.php" id="registrarse">¡Registrate!</a>

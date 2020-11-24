@@ -41,12 +41,13 @@ if(isset($_SESSION['eClave']) || isset($_SESSION['iClave'])){
 			$email = $_POST["correo"];
 			$municipio = $_POST["municipio"];
 			$nombre = $_POST["nombre"];
+			$F = $_POST["birthday"];
 			$pais = $_POST["pais"];
 			$password = $_POST["password"];
 			$password_hash = password_hash($password, PASSWORD_DEFAULT);
 			$provincia = $_POST["provincia"];
-			 $sql = "INSERT INTO empresas (eCIF, eCP, eEmail, eMunicipio, eNombre, ePais, ePass, eProvincia) 
-						VALUES ('$cif','$cp','$email','$municipio','$nombre','$pais','$password_hash','$provincia')";
+			 $sql = "INSERT INTO empresas (eCIF, eCP, eEmail, eMunicipio, eNombre, ePais, ePass, eProvincia, eFundacion) 
+						VALUES ('$cif','$cp','$email','$municipio','$nombre','$pais','$password_hash','$provincia', $F)";
 			if ($mysqli->query($sql) === TRUE) {
 			  echo "Nuevo Registro Creado";
 			} else {
@@ -61,9 +62,10 @@ Le recuerdo su informaci√≥n introducida: <br><br>
 
 CIF: <?php echo $_POST['cif'] ?> <br>
 Municipio: <?php echo $_POST['municipio'] ?> <br>
+Fecha de fundacion: <?php echo $_POST['birthday'] ?> <br>
 Provincia: <?php echo $_POST['provincia'] ?> <br>
-C√≥digo postal: <?php echo $_POST['cp'] ?> <br>
-Pa√≠s: <?php echo $_POST['pais'] ?> <br><br>
+CÛdigo postal: <?php echo $_POST['cp'] ?> <br>
+PaÌs: <?php echo $_POST['pais'] ?> <br><br>
 
 Para salir pulse en terminar: <br>
 <form action="index.php">
@@ -79,7 +81,7 @@ Para salir pulse en terminar: <br>
 		</a>
 	</aside> <!-- FIN BANNER -->
  <?php
-	require('pie.php');
+	require('../vista/pie.php');
 ?>
                                         <!-- The Modal -->
 					    <div class="modal fade" id="identificacion">

@@ -75,8 +75,10 @@ if (isset($_POST['registro'])) {
         if (password_verify($contraseña, $result['iPass'])) {
             $_SESSION['iClave'] = $result['iClave'];
             $_SESSION['iNombre'] = $result['iNombre'];
+			if(isset($_POST['recuerda'])){
             setcookie('iClave', $_SESSION['iClave'], time() + 3600 * 24,'/');
             setcookie('iNombre', $_SESSION['iNombre'], time() + 3600 * 24,'/');
+			}
             echo "<script> window.location='../vista/index.php'; </script>";
         } else {
             echo "<script> window.location='../vista/registroInformatico.php'; </script>";

@@ -49,29 +49,34 @@ if (isset($_SESSION['eClave']) || isset($_SESSION['iClave'])) {
 
             <FORM onSubmit="return validate()" ACTION="../controlador/resumenRegistroInformatico.php" METHOD="POST">
                 <div class="grid-container">
-                    <div class="row"><div class="col-sm">
+                    <div class="row">
+					<div class="col-sm">
                         <label for="Email">Email</label><br>
-                        <input type="email" width="250" maxlength="64" id="Email" placeholder="Introduzca su email" name="Email" required><br><br>
+                        <input type="email" class="form-control" width="250" maxlength="64" id="Email" placeholder="Introduzca su email" name="Email" required><br><br>
                         <label for="P1">Contraseña</label><br>
-                        <input type="password" maxlength="64" id="P1" placeholder="Indroduzca su contraseña" name="Contraseña" required><br><br>
+                        <input type="password" class="form-control" maxlength="64" id="P1" placeholder="Indroduzca su contraseña" name="Contraseña" required><br><br>
                         <label for="P2">Repita su contraseña</label><br>
-                        <input type="password" maxlength="64" id="P2" placeholder="Repita su contraseña" name="Contraseña2" required><br><br>
-                        <label for="N">Nombre Y apellidos</label><br>
-                        <input type="text" id="N" placeholder="Introduzca su nombre" maxlength="64" name="Nombre" required><br><br>
+                        <input type="password" class="form-control" maxlength="64" id="P2" placeholder="Repita su contraseña" name="Contraseña2" required><br><br>
+                        <label for="N">Nombre</label><br>
+                        <input type="text" id="N" class="form-control" placeholder="Introduzca su nombre" maxlength="64" name="Nombre" required><br><br>
+						<label for="A">Apellidos</label><br>
+                        <input type="text" id="A" class="form-control" placeholder="Introduzca su apellido" maxlength="64" name="Apellido" required><br><br>
                         <label for="dni">DNI</label><br>
-                        <input type="text" id="dni" name="dni" placeholder="Introduzca su DNI" required pattern="[0-9]{8}[A-Za-z]{1}" title="Debe poner 8 números y una letra" /><br><br>
+                        <input type="text" id="dni" class="form-control" name="dni" placeholder="Introduzca su DNI" required pattern="[0-9]{8}[A-Za-z]{1}" title="Debe poner 8 números y una letra" /><br><br>
                    </div>
 				   <div class="col-sm">
+						<label for="Nacimiento">Fecha de nacimiento:</label><br>
+                        <input type="date" class="form-control" id="Nacimiento" name="birthday"><br><br>
                         <label for="phone">Numero de telefono:</label><br>
-                        <input type="tel" maxlength="64" id="phone" name="Telefono" required pattern="[0-9]{9}" title="Escriba 9 numeros. Ejemplo 000000000"><br><br>
+                        <input type="tel" class="form-control" maxlength="64" id="phone" name="Telefono" required pattern="[0-9]{9}" title="Escriba 9 numeros. Ejemplo 000000000"><br><br>
                         <label for="M">Municipio</label><br>
-                        <input type="text" required maxlength="64" id="M" placeholder="Introduzca su municipio" name="municipio"><br><br>
+                        <input type="text" class="form-control" required maxlength="64" id="M" placeholder="Introduzca su municipio" name="municipio"><br><br>
                         <label for="p">Provinvia</label><br>
-                        <input type="text" required maxlength="64" id="p" placeholder="Introduzca su provincia" name="provincia"><br><br>
+                        <input type="text" class="form-control" required maxlength="64" id="p" placeholder="Introduzca su provincia" name="provincia"><br><br>
                         <label for="cp">Codigo postal</label><br>
-                        <input type="text" required id="cp" required pattern="[0-9]{5}" placeholder="Introduzca su codigo postal" name="cp"><br><br>
+                        <input type="text" class="form-control" required id="cp" required pattern="[0-9]{5}" placeholder="Introduzca su codigo postal" name="cp"><br><br>
                         <label for="pa">Pais</label><br>
-                        <input type="text" required id="pa" maxlength="64" placeholder="Introduzca su pais" name="pais"><br><br>
+                        <input type="text" class="form-control" required id="pa" maxlength="64" placeholder="Introduzca su pais" name="pais"><br><br>
                     </div>
                 </div>
 				  </div>

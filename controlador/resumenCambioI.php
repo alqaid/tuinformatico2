@@ -12,7 +12,7 @@ if (!isset($_SESSION['eClave']) && isset($_COOKIE['eClave'])) {
     $_SESSION['iNombre'] = $_COOKIE['iNombre'];
 }
  
-if(isset($_SESSION['eClave']) || isset($_SESSION['iClave'])){
+if(isset($_SESSION['eClave']) || !isset($_SESSION['iClave'])){
     header('Location: ../vista/Error.php');
     exit;
 }
@@ -50,8 +50,7 @@ if(isset($_SESSION['eClave']) || isset($_SESSION['iClave'])){
 			$CP = $_POST["cp"];
 			$Dp = $_POST["descripcionP"];
 			$DG = $_POST["descripcionG"];
-			 $sql = "INSERT INTO informaticos (iCP, iDescripcion, iDescripcionCorta, iDNI, iEmail, iMunicipio, iNombre, iPais, iPass, iProvincia, iTelefono, iNacimiento, iApellidos) 
-						VALUES ('$CP','$DG','$Dp','$DNI','$E','$M','$N','$Pais','$password_hash','$provincia','$T', '$F', '$A')";
+			$sql = "UPDATE informaticos SET iCP='$CP', iPass='$password_hash', iEmail='$E', iNombre='$N', iApellidos='$A', iNacimiento='$F', iDNI='$DNI', iTelefono='$T', iPais='$Pais', iMunicipio='$M', iProvincia='$provincia', iDescripcionCorta='$Dp', iDescripcion='$DG' WHERE iClave='".$_SESSION['iClave']."'";
 			if ($mysqli->query($sql) === TRUE) {
 			  echo "Nuevo Registro Creado";
 			} else {
@@ -60,7 +59,7 @@ if(isset($_SESSION['eClave']) || isset($_SESSION['iClave'])){
 			$mysqli->close();
 ?>
 <br>
-Su cuenta <?php echo $_POST['Nombre'] ?> ya está registrada en tuinformatico.com <br>
+Su cuenta <?php echo $_POST['Nombre'] ?> ya está modificada en tuinformatico.com <br>
 Recuerde que su correo <?php echo $_POST['Email'] ?>  será utilizado como usuario para autenficarse <br><br>
 Le recuerdo su información introducida: <br><br>
 

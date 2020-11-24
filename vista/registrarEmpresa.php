@@ -51,30 +51,34 @@ if (isset($_SESSION['eClave']) || isset($_SESSION['iClave'])) {
             <FORM onSubmit="return validate()" ACTION="../controlador/resumenRegistroEmpresa.php" METHOD="POST">
                 Para realizar el registro debe rellenar la siguiente información sobre la Empresa: <br><br>
                 <div class="grid-container">
-                    <div>
+				<div class="row">
+                    <div class="col-sm">
                         <label for="N">Nombre de la empresa</label><br>
-                        <input type="text" id="N" size="40" maxlength="64" placeholder="Introduzca el nombre de empresa" NAME="nombre" required /><br><br>
+                        <input type="text" class="form-control" id="N" size="40" maxlength="64" placeholder="Introduzca el nombre de empresa" NAME="nombre" required /><br><br>
                         <label for="CIF">Código de Identificación Fiscal (CIF)</label><br>
-                        <input title="Una Letra y 8 números" type="text" id="CIF" size="40" maxlength="64" placeholder="Introduzca su CIF" pattern="[A-Z]{1}[0-9]{8}" NAME="cif" required /><br><br>
+                        <input title="Una Letra y 8 números" class="form-control" type="text" id="CIF" size="40" maxlength="64" placeholder="Introduzca su CIF" pattern="[A-Z]{1}[0-9]{8}" NAME="cif" required /><br><br>
                         <label for="M">Municipio</label><br>
-                        <input type="text" id="M" size="40" maxlength="64" placeholder="Introduzca su municipio" NAME="municipio" required /><br><br>
+                        <input type="text" id="M" class="form-control" size="40" maxlength="64" placeholder="Introduzca su municipio" NAME="municipio" required /><br><br>
                         <label for="p">Provinvia</label><br>
-                        <input type="text" id="p" size="40" maxlength="64" placeholder="Introduzca su provincia" NAME="provincia" required /><br><br>
+                        <input type="text" id="p" class="form-control" size="40" maxlength="64" placeholder="Introduzca su provincia" NAME="provincia" required /><br><br>
                         <label for="cp">Codigo postal</label><br>
-                        <input type="text" id="cp" required pattern="[0-9]{5}" size="40" maxlength="5" placeholder="Introduzca su codigo postal"  NAME="cp" required /><br><br>
-                        <label for="pa">Pais</label><br>
-                        <input type="text" id="pa" size="40" maxlength="64" placeholder="Introduzca el pais" NAME="pais" required /><br><br>
+                        <input type="text" id="cp" class="form-control" required pattern="[0-9]{5}" size="40" maxlength="5" placeholder="Introduzca su codigo postal"  NAME="cp" required /><br><br>
                     </div>
-                    <div>
+                    <div class="col-sm">
+						<label for="pa">Pais</label><br>
+                        <input type="text" id="pa" class="form-control" size="40" maxlength="64" placeholder="Introduzca el pais" NAME="pais" required /><br><br>
+						<label for="Nacimiento">Fecha de fundacion:</label><br>
+                        <input type="date" class="form-control" id="Nacimiento" name="birthday"><br><br>
                         <label for="Email">Email</label><br>
-                        <input type="email" id="Email" size="40" maxlength="64" placeholder="Introduzca el email" NAME="correo" required /><br><br>
+                        <input type="email" class="form-control" id="Email" size="40" maxlength="64" placeholder="Introduzca el email" NAME="correo" required /><br><br>
                         <label for="password">Contraseña</label><br>
-                        <input type="password" id="password" name="password" placeholder="Introduzca su contraseña" size="20" required /><br><br>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Introduzca su contraseña" size="20" required /><br><br>
                         <label for="confirm_password">Repita su contraseña</label><br>
-                        <input type="password" id="confirm_password" placeholder="Repita su contraseña" name="confirm_password" size="20" required/><br><br>
+                        <input type="password" class="form-control" id="confirm_password" placeholder="Repita su contraseña" name="confirm_password" size="20" required/><br><br>
                         <br><br>
                         <input type="submit" class="btn btn-success" value="Continuar" /><br><br>
                     </div>
+					</div>
                 </div>
             </FORM>
 

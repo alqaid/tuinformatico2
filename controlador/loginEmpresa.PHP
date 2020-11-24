@@ -60,7 +60,6 @@ if (isset($_POST['registro'])) {
 
     $email = $_POST['email'];
     $contraseña = $_POST['contraseña'];
-    $yolo = password_hash($contraseña, PASSWORD_DEFAULT);
 
     $query = $conexPDO->prepare("SELECT * FROM empresas WHERE eEmail='" . $email . "'");
     $query->execute();
@@ -73,8 +72,10 @@ if (isset($_POST['registro'])) {
         if (password_verify($contraseña, $result['ePass'])) {
             $_SESSION['eClave'] = $result['eClave'];
             $_SESSION['eNombre'] = $result['eNombre'];
-            setcookie('eClave', $_SESSION['eClave'], time() + 3600 * 24,'/');
-            setcookie('eNombre', $_SESSION['eNombre'], time() + 3600 * 24,'/');
+			if(isset($_POST['recuerda'])){
+				setcookie('eClave', $_SESSION['eClave'], time() + 3600 * 24,'/');
+				setcookie('eNombre', $_SESSION['eNombre'], time() + 3600 * 24,'/');
+			}
             echo "<script> window.location='../vista/index.php'; </script>";
         } else {
             echo "<script> window.location='../vista/registrarEmpresa.php'; </script>";

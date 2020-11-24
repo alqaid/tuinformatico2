@@ -12,7 +12,7 @@ if (!isset($_SESSION['eClave']) && isset($_COOKIE['eClave'])) {
     $_SESSION['iNombre'] = $_COOKIE['iNombre'];
 }
  
-if(isset($_SESSION['eClave']) || isset($_SESSION['iClave'])){
+if(!isset($_SESSION['eClave']) || isset($_SESSION['iClave'])){
     header('Location: ../vista/Error.php');
     exit;
 }
@@ -33,25 +33,20 @@ if(isset($_SESSION['eClave']) || isset($_SESSION['iClave'])){
 <main class=" col-9 "   >
 <!-- SITIO LIBRE PARA INCLUIR -->
 
-<?php	
+<?php		
 			echo "<!----conetando-->";
-			require('../modelo/conexion_mysql.php');
-			$E = $_POST["Email"];
-			$c = $_POST["Contraseña"];
-			$password_hash = password_hash($c, PASSWORD_DEFAULT);
-			$N = $_POST["Nombre"];
-			$A = $_POST["Apellido"];
+				require('../modelo/conexion_mysql.php');
+			$cif = $_POST["cif"];
+			$cp = $_POST["cp"];
+			$email = $_POST["correo"];
+			$municipio = $_POST["municipio"];
+			$nombre = $_POST["nombre"];
 			$F = $_POST["birthday"];
-			$DNI = $_POST["dni"];
-			$T = $_POST["Telefono"];
-			$Pais = $_POST["pais"];
-			$M = $_POST["municipio"];
+			$pais = $_POST["pais"];
+			$password = $_POST["password"];
+			$password_hash = password_hash($password, PASSWORD_DEFAULT);
 			$provincia = $_POST["provincia"];
-			$CP = $_POST["cp"];
-			$Dp = $_POST["descripcionP"];
-			$DG = $_POST["descripcionG"];
-			 $sql = "INSERT INTO informaticos (iCP, iDescripcion, iDescripcionCorta, iDNI, iEmail, iMunicipio, iNombre, iPais, iPass, iProvincia, iTelefono, iNacimiento, iApellidos) 
-						VALUES ('$CP','$DG','$Dp','$DNI','$E','$M','$N','$Pais','$password_hash','$provincia','$T', '$F', '$A')";
+			$sql = "UPDATE empresas SET eCP='$cp', ePass='$password_hash', eEmail='$email', eNombre='$nombre', eFundacion='$F', eCIF='$cif', ePais='$pais', eMunicipio='$municipio', eProvincia='$provincia' WHERE eClave='".$_SESSION['eClave']."'";
 			if ($mysqli->query($sql) === TRUE) {
 			  echo "Nuevo Registro Creado";
 			} else {
@@ -60,22 +55,19 @@ if(isset($_SESSION['eClave']) || isset($_SESSION['iClave'])){
 			$mysqli->close();
 ?>
 <br>
-Su cuenta <?php echo $_POST['Nombre'] ?> ya está registrada en tuinformatico.com <br>
-Recuerde que su correo <?php echo $_POST['Email'] ?>  será utilizado como usuario para autenficarse <br><br>
+La empresa <?php echo $_POST['nombre'] ?> ya está modificada en tuinformatico.com <br>
+Recuerde que su correo <?php echo $_POST['correo'] ?>  será utilizado como usuario para autenficarse <br><br>
 Le recuerdo su información introducida: <br><br>
 
-Nombre: <?php echo $_POST['Nombre'] ?> <br>
-Apellidos: <?php echo $_POST['Apellido'] ?> <br>
-Nacimiento: <?php echo $_POST['birthday'] ?> <br>
-DNI: <?php echo $_POST['dni'] ?> <br>
-Telefono: <?php echo $_POST['Telefono'] ?> <br>
+CIF: <?php echo $_POST['cif'] ?> <br>
 Municipio: <?php echo $_POST['municipio'] ?> <br>
+Fecha de fundacion: <?php echo $_POST['birthday'] ?> <br>
 Provincia: <?php echo $_POST['provincia'] ?> <br>
 Código postal: <?php echo $_POST['cp'] ?> <br>
 País: <?php echo $_POST['pais'] ?> <br><br>
 
 Para salir pulse en terminar: <br>
-<form action="../vista/index.php">
+<form action="index.php">
 	<button type="submit" class="btn btn-success">Terminar</button>
 </form>	
 
