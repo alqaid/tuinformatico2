@@ -13,5 +13,5 @@ $mail->Username      = "envios@alcaide.info"; // SMTP account username
 $mail->Password      = "malad_2122AASS";        // SMTP account password
 $mail->SetFrom("envios@alcaide.info");
 $mail->AddReplyTo("envios@alcaide.info");
-$mail->CharSet="UTF-8";
+$mail->CharSet="UTF-8";    // FORZAR UTFO EN EL EMAIL
 ?>
